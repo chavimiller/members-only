@@ -26,4 +26,16 @@ async function adminGet(req, res) {
 }
 // POST admin form
 
-module.exports = { createAccountGet, loginAccountGet, memberGet, adminGet };
+// GET logout
+
+async function logout(req, res) {
+  res.redirect("/");
+}
+
+module.exports = {
+  createAccountGet,
+  loginAccountGet,
+  memberGet,
+  adminGet,
+  logout,
+};

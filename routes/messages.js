@@ -8,6 +8,4 @@ messagesRouter.get("/new", messageController.newMessageGet);
 
 // post delete a message
 
-// get logout
-
 module.exports = messagesRouter;

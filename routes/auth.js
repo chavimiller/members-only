@@ -3,8 +3,8 @@ const authController = require("../controllers/authController");
 const authRouter = Router();
 
 // get signup page
-
 authRouter.get("/", authController.createAccountGet);
+
 // post signup user
 
 // get login page
@@ -19,5 +19,8 @@ authRouter.get("/member", authController.memberGet);
 // get admin page
 authRouter.get("/admin", authController.adminGet);
 // post admin auth
+
+// get logout
+authRouter.get("/logout", authController.logout);
 
 module.exports = authRouter;
