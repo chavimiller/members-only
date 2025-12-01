@@ -4,19 +4,20 @@ const authRouter = Router();
 
 // get signup page
 
-authRouter.get("/signup", authController.createAccountGet);
+authRouter.get("/", authController.createAccountGet);
 // post signup user
 
 // get login page
-
+authRouter.get("/login", authController.loginAccountGet);
 // post login user
 
 // get member page
+authRouter.get("/member", authController.memberGet);
 
 // post member auth
 
 // get admin page
-
+authRouter.get("/admin", authController.adminGet);
 // post admin auth
 
 module.exports = authRouter;

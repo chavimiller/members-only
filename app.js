@@ -8,9 +8,9 @@ const path = require("node:path");
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
-app.use("/", indexRouter);
-app.use("/auth", authRouter);
-app.use("/messages", messagesRouter);
+app.use("/", authRouter);
+app.use("/home", indexRouter);
+app.use("/message", messagesRouter);
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, (error) => {
