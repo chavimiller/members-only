@@ -1,6 +1,6 @@
 // const db = require("../db/queries.js")
 
-// function for GET sign up form
+// GET sign up form
 
 // POST sign up form
 
