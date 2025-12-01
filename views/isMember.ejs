@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Membership Code</title>
+  </head>
+  <body>
+    <h1>Do you have a member code?</h1>
+    <h2>
+      Have a club code? Enter your secret code. If not, you can always join
+      later!
+    </h2>
+    <form action="/auth/member" method="POST">
+      <input name="code" type="text" placeholder="Enter member code" />
+      <button>Validate</button>
+    </form>
+    <div>Don't have a code? <a>Continue as regular member</a></div>
+  </body>
+</html>

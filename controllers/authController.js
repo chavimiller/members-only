@@ -2,6 +2,10 @@
 
 // GET sign up form
 
+async function createAccountGet(req, res) {
+  res.render("signup");
+}
+
 // POST sign up form
 
 // GET login form
@@ -16,4 +20,4 @@
 
 // POST admin form
 
-module.exports = {};
+module.exports = { createAccountGet };
