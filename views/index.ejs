@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <a href="/auth/logout">Logout</a>
+
+      <div class="user-info">
+        <div class="avatar"></div>
+
+        <div class="user-meta">
+          <span
+            ><%= user.first_name %> <%= user.last_name %> (@<%= user.username
+            %>)</span
+          >
+
+          <div class="role-info">
+            <% if (user.is_member) { %>
+            <span>Club Member</span>
+            <% } %> <% if (user.is_admin) { %>
+            <span> • Admin</span>
+            <% } %>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <h2>Hello, <%= user.first_name %>!</h2>
+
+      <a href="/message/new" class="new-msg-btn">New Message</a>
+
+      <!-- LIST OF ALL MESSAGES -->
+      <% messages.forEach(message => { %>
+
+      <div class="message-box">
+        <!-- message header with avatar + username -->
+        <div class="message-header">
+          <div class="avatar"></div>
+          <span>@<%= message.username %></span>
+        </div>
+
+        <!-- Title -->
+        <div class="message-title"><%= message.title %></div>
+
+        <!-- Body -->
+        <div class="message-body"><%= message.message_text %></div>
+
+        <!-- Timestamp (only if MEMBER) -->
+        <% if (user.is_member) { %>
+        <div class="timestamp">
+          Posted on <%= message.created_at.toLocaleString() %>
+        </div>
+        <% } %>
+
+        <!-- Delete button (only if ADMIN) -->
+        <% if (user.is_admin) { %>
+        <form action="/message/<%= message.id %>/delete" method="POST">
+          <button class="delete-btn">Delete</button>
+        </form>
+        <% } %>
+      </div>
+
+      <% }) %>
+    </main>
+  </body>
+</html>
