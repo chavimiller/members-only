@@ -1,10 +1,13 @@
 const db = require("../db/queries.js");
-const { validationResult } = require("express-validator");
+const { validationResult, matchedData } = require("express-validator");
 
 // GET sign up form
 
 async function createAccountGet(req, res) {
-  res.render("signup");
+  res.render("signup", {
+    errors: [],
+    data: {},
+  });
 }
 
 // POST sign up form
@@ -17,11 +20,12 @@ async function createAccountPost(req, res) {
       data: req.body,
     });
   }
+  const data = matchedData(req);
 
   await db.insertUser(
-    req.body.firstName,
-    req.body.lastName,
-    req.body.username,
+    data.firstName,
+    data.lastName,
+    data.username,
     password // Work with hashing and bcrypt
   );
 

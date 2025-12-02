@@ -4,6 +4,7 @@ const alphaErr = "must only contain letters.";
 const validateUser = [
   body("firstName")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("First name is required.")
     .isAlpha()
@@ -12,6 +13,7 @@ const validateUser = [
     .withMessage("First name must be between 1 and 30 characters"),
   body("lastName")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("Last name is required.")
     .isAlpha()
@@ -20,6 +22,7 @@ const validateUser = [
     .withMessage("Last name must be between 1 and 75 characters"),
   body("username")
     .trim()
+    .escape()
     .notEmpty()
     .withMessage("Username is required.")
     .isLength({ min: 3, max: 15 })
