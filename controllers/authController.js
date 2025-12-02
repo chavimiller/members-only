@@ -1,7 +1,6 @@
 const db = require("../db/queries.js");
 const { validationResult, matchedData } = require("express-validator");
-
-// GET sign up form
+const bcrypt = require("bcryptjs");
 
 async function createAccountGet(req, res) {
   res.render("signup", {
@@ -21,15 +20,11 @@ async function createAccountPost(req, res) {
     });
   }
   const data = matchedData(req);
+  const hashedPass = await bcrypt.hash(data.password, 10);
 
-  await db.insertUser(
-    data.firstName,
-    data.lastName,
-    data.username,
-    data.password // Work with hashing and bcrypt
-  );
+  await db.insertUser(data.firstName, data.lastName, data.username, hashedPass);
 
-  res.redirect("/login");
+  res.redirect("/auth/login");
 }
 
 // GET login form

@@ -2,6 +2,7 @@ const { Router } = require("express");
 const authController = require("../controllers/authController");
 const authRouter = Router();
 const validateUser = require("../validators/signupValidator");
+const passport = require("../config/passport");
 
 // get signup page
 authRouter.get("/signup", authController.createAccountGet);
@@ -13,6 +14,13 @@ authRouter.post("/signup", validateUser, authController.createAccountPost);
 // get login page
 authRouter.get("/login", authController.loginAccountGet);
 // post login user
+authRouter.post(
+  "/login",
+  passport.authenticate("local", {
+    successRedirect: "/home",
+    failureRedirect: "/auth/login",
+  })
+);
 
 // get member page
 authRouter.get("/member", authController.memberGet);
