@@ -1,4 +1,4 @@
-const { body, validationResult } = require("express-validator");
+const { body } = require("express-validator");
 const alphaErr = "must only contain letters.";
 
 const validateUser = [
@@ -18,7 +18,7 @@ const validateUser = [
     .withMessage(`Last name ${alphaErr}`)
     .isLength({ min: 1, max: 75 })
     .withMessage("Last name must be between 1 and 75 characters"),
-  body("userName")
+  body("username")
     .trim()
     .notEmpty()
     .withMessage("Username is required.")
@@ -47,7 +47,7 @@ const validateUser = [
 
       return true;
     }),
-  body("confirmpass")
+  body("confirmPass")
     .notEmpty()
     .withMessage("Please confirm your password.")
     .custom((value, { req }) => {

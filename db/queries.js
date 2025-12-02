@@ -4,7 +4,12 @@ const pool = require("./pool");
 
 // getMessageById() {}
 
-// insertMessage() {}
+async function insertMessage(title, message) {
+  await pool.query(`INSERT INTO messages (title, message) VALUES ($1, $2)`, [
+    title,
+    message,
+  ]);
+}
 
 // deleteMessage() {}
 
@@ -14,7 +19,12 @@ const pool = require("./pool");
 
 // authController.js :
 
-// insertUser() {}
+async function insertUser(firstName, lastName, username, password) {
+  await pool.query(
+    `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4)`,
+    [firstName, lastName, username, password]
+  );
+}
 
 // getUserById(userId) {}
 
@@ -24,4 +34,4 @@ const pool = require("./pool");
 
 // updateAdminStatus(userId) {}
 
-module.exports = {};
+module.exports = { insertUser, insertMessage };

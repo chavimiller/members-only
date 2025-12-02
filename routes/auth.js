@@ -1,11 +1,14 @@
 const { Router } = require("express");
 const authController = require("../controllers/authController");
 const authRouter = Router();
+const validateUser = require("../validators/signupValidator");
 
 // get signup page
 authRouter.get("/", authController.createAccountGet);
 
 // post signup user
+
+authRouter.post("/", validateUser, authController.createAccountPost);
 
 // get login page
 authRouter.get("/login", authController.loginAccountGet);

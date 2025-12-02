@@ -7,10 +7,28 @@
   </head>
   <body>
     <h1>Create new message</h1>
+
+    <% if (errors && errors.length > 0) { %>
+    <div style="color: red">
+      <% errors.forEach(err => { %>
+      <p><%= err.msg %></p>
+      <% }); %>
+    </div>
+    <% } %>
+
     <form action="/message/new" method="POST">
-      <input type="text" name="title" />
-      <textarea name="text"></textarea>
-      <button>Post</button>
+      <input
+        type="text"
+        name="title"
+        id="title"
+        value="<%= data ? data.title : '' %>"
+      />
+      <textarea name="messageText" id="messageText">
+<%= data ? data.messageText : '' %>
+</textarea
+      >
+
+      <button type="submit">Post</button>
     </form>
     <a>Cancel</a>
   </body>
