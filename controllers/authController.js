@@ -26,7 +26,7 @@ async function createAccountPost(req, res) {
     data.firstName,
     data.lastName,
     data.username,
-    password // Work with hashing and bcrypt
+    data.password // Work with hashing and bcrypt
   );
 
   res.redirect("/login");
