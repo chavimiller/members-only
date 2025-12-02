@@ -14,7 +14,7 @@
       <% }); %>
     </div>
     <% } %>
-    <form action="/auth/signup" method="POST">
+    <form action="/auth/signup" method="POST" autocomplete="off">
       <label for="firstName">Firstname</label>
       <input
         type="text"
@@ -43,13 +43,20 @@
       />
 
       <label for="password">Password</label>
-      <input type="password" name="password" placeholder="Password" required />
+      <input
+        type="password"
+        name="password"
+        placeholder="Password"
+        autocomplete="new-password"
+        required
+      />
 
       <label for="confirmPass">Confirmpass</label>
       <input
         type="password"
         name="confirmPass"
         placeholder="Confirm password"
+        autocomplete="new-password"
         required
       />
 

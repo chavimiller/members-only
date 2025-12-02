@@ -19,6 +19,7 @@ authRouter.post(
   passport.authenticate("local", {
     successRedirect: "/home",
     failureRedirect: "/auth/login",
+    failureMessage: true,
   })
 );
 

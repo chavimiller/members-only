@@ -48,7 +48,12 @@ async function adminGet(req, res) {
 // GET logout
 
 async function logout(req, res) {
-  res.redirect("/");
+  req.logout((err) => {
+    if (err) {
+      return next(err);
+    }
+  });
+  res.redirect("/auth/login");
 }
 
 module.exports = {

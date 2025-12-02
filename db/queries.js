@@ -15,7 +15,10 @@ async function insertMessage(title, message) {
 
 // indexController.js :
 
-// getAllMessages() {}
+async function getAllMessages() {
+  const result = await pool.query("SELECT * FROM messages ORDER BY id DESC");
+  return result.rows;
+}
 
 // authController.js :
 
@@ -42,4 +45,10 @@ async function getUserByUsername(username) {
 
 // updateAdminStatus(userId) {}
 
-module.exports = { insertUser, insertMessage, getUserById, getUserByUsername };
+module.exports = {
+  getAllMessages,
+  insertUser,
+  insertMessage,
+  getUserById,
+  getUserByUsername,
+};
