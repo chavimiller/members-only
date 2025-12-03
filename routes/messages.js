@@ -11,4 +11,7 @@ messagesRouter.post("/new", validateMessage, messageController.newMessagePost);
 
 // post delete a message
 
+// get cancel message
+messagesRouter.get("/cancelMessage", messageController.cancelMessage);
+
 module.exports = messagesRouter;

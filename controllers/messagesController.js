@@ -28,4 +28,9 @@ async function newMessagePost(req, res) {
 
 // POST delete message (admins only)
 
-module.exports = { newMessageGet, newMessagePost };
+// GET cancel message
+async function cancelMessage(req, res) {
+  res.redirect("/home");
+}
+
+module.exports = { newMessageGet, newMessagePost, cancelMessage };
