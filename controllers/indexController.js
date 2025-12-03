@@ -9,4 +9,10 @@ async function showAllMessages(req, res) {
   });
 }
 
-module.exports = { showAllMessages };
+// Ensure user is logged in
+async function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) return next();
+  return res.redirect("/auth/login");
+}
+
+module.exports = { showAllMessages, ensureAuthenticated };

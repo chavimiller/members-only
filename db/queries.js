@@ -4,11 +4,11 @@ const pool = require("./pool");
 
 // getMessageById() {}
 
-async function insertMessage(title, message) {
-  await pool.query(`INSERT INTO messages (title, message) VALUES ($1, $2)`, [
-    title,
-    message,
-  ]);
+async function insertMessage(title, message, userId) {
+  await pool.query(
+    `INSERT INTO messages (title, message, user_id) VALUES ($1, $2, $3)`,
+    [title, message, userId]
+  );
 }
 
 // deleteMessage() {}
@@ -16,7 +16,21 @@ async function insertMessage(title, message) {
 // indexController.js :
 
 async function getAllMessages() {
-  const result = await pool.query("SELECT * FROM messages ORDER BY id DESC");
+  const result = await pool.query(`
+  SELECT 
+    messages.id,
+    messages.title,
+    messages.message,
+    messages.user_id,
+    messages.created_at,
+    users.username,
+    users.first_name,
+    users.last_name
+  FROM messages
+  JOIN users ON messages.user_id = users.id
+  ORDER BY messages.id DESC
+`);
+
   return result.rows;
 }
 

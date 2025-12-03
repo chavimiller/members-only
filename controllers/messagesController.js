@@ -21,7 +21,7 @@ async function newMessagePost(req, res) {
   }
 
   const data = matchedData(req);
-  await db.insertMessage(data.title, data.message);
+  await db.insertMessage(data.title, data.message, req.user.id);
 
   res.redirect("/home");
 }

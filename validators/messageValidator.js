@@ -8,7 +8,7 @@ const validateMessage = [
     .withMessage("Title is required.")
     .isLength({ min: 1, max: 60 })
     .withMessage("Title must be between 1 and 60 characters."),
-  body("messageText")
+  body("message")
     .trim()
     .escape()
     .notEmpty()
