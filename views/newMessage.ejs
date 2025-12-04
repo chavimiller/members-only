@@ -3,29 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/main.css" />
     <title>New Message</title>
   </head>
   <body>
-    <h1>Create new message</h1>
+    <div class="container section">
+      <h1 class="new-message-header">Create new message</h1>
 
-    <% if (errors && errors.length > 0) { %>
-    <div style="color: red">
-      <% errors.forEach(err => { %>
-      <p><%= err.msg %></p>
-      <% }); %>
+      <% if (errors && errors.length > 0) { %>
+      <div style="color: red">
+        <% errors.forEach(err => { %>
+        <p><%= err.msg %></p>
+        <% }); %>
+      </div>
+      <% } %>
+
+      <form class="form" action="/message/new" method="POST" autocomplete="off">
+        <input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title"
+          value="<%= data ? data.title : '' %>"
+        />
+        <textarea
+          name="message"
+          id="message"
+          value="<%= data ? data.message : '' %>"
+          placeholder="Write message"
+        >
+<%= data.message || "" %></textarea
+        >
+        <button type="submit">Post</button>
+      </form>
+      <div class="lower-line">
+        <a class="redirect" href="/message/cancelMessage">Cancel</a>
+      </div>
     </div>
-    <% } %>
-
-    <form action="/message/new" method="POST" autocomplete="off">
-      <input
-        type="text"
-        name="title"
-        id="title"
-        value="<%= data ? data.title : '' %>"
-      />
-      <textarea name="message" id="message"><%= data.message || "" %></textarea>
-      <button type="submit">Post</button>
-    </form>
-    <a href="/message/cancelMessage">Cancel</a>
   </body>
 </html>

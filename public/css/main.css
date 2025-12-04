@@ -40,7 +40,7 @@ h1 {
     font-family: "InriaSerifBold";
     color: var(--secondary);
 }
-input {
+input  {
     outline: none;
     box-sizing: border-box;
     background-color: transparent;
@@ -52,10 +52,26 @@ input {
     font-family: "InriaSerif";
 }
 
-input::placeholder {
+textarea {
+    outline: none;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: solid 2px var(--accent);
+    border-radius: .4rem;
+    padding: 1rem;
+    font-size: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    min-height: 15rem;
+    font-family: "InriaSerif";
+}
+
+input::placeholder, textarea::placeholder {
     color: var(--accent);
     font-family: "InriaSerif";
 }
+
+
 
 button {
     background-color: var(--secondary);
@@ -107,10 +123,16 @@ form {
     text-align: center;
 }
 
-.login-form {
+.form {
     gap: 1.5rem;
 }
 
 .login-button {
     margin: 1rem 0;
+}
+
+.new-message-header {
+    color: var(--black);
+    font-size: 2rem;
+    padding: 3rem 0;
 }
