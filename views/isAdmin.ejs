@@ -6,12 +6,15 @@
     <title>Admin Code</title>
   </head>
   <body>
+    <% if (error === 'wrongCode') { %>
+    <p style="color: red">Incorrect admin code, try again.</p>
+    <% } %>
     <h1>Do you have an admin code?</h1>
     <h2>If you have an admin code enter it below.</h2>
     <form action="/auth/admin" method="POST" autocomplete="off">
       <input name="code" type="text" placeholder="Enter admin code" />
       <button>Validate</button>
     </form>
-    <div>Not an admin? <a>Continue</a></div>
+    <div><a>Cancel</a></div>
   </body>
 </html>

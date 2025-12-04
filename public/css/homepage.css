@@ -61,6 +61,11 @@
     flex-direction: column;
     margin: 1rem 0;
     gap: .7rem;
+    box-sizing: border-box;
+    background-color: transparent;
+    border: solid 2px var(--accent);
+    border-radius: .4rem;
+    padding: 1rem;
 }
 
 .message-header {
@@ -72,4 +77,11 @@
 .message-title {
     font-family: "InriaSerifBold";
     font-size: 1.2rem;
+}
+
+.delete-btn {
+    align-self: flex-end;
+    text-align: end;
+    padding: 0;
+    color: var(--secondary);
 }

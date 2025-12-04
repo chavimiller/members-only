@@ -55,9 +55,19 @@ async function getUserByUsername(username) {
   return rows[0];
 }
 
-// updateMembershipStatus(userId) {}
+async function updateMembershipStatus(userId, status) {
+  await pool.query(`UPDATE users SET is_member = $1 WHERE id = $2`, [
+    status,
+    userId,
+  ]);
+}
 
-// updateAdminStatus(userId) {}
+async function updateAdminStatus(userId, status) {
+  await pool.query(`UPDATE users SET is_admin = $1 WHERE id = $2`, [
+    status,
+    userId,
+  ]);
+}
 
 module.exports = {
   getAllMessages,
@@ -65,4 +75,6 @@ module.exports = {
   insertMessage,
   getUserById,
   getUserByUsername,
+  updateAdminStatus,
+  updateMembershipStatus,
 };

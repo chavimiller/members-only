@@ -24,14 +24,22 @@ authRouter.post(
 );
 
 // get member page
-authRouter.get("/member", authController.memberGet);
+authRouter.get(
+  "/member",
+  authController.ensureAuthenticated,
+  authController.memberGet
+);
 
 // post member auth
-
+authRouter.post("/member", authController.memberPost);
 // get admin page
-authRouter.get("/admin", authController.adminGet);
+authRouter.get(
+  "/admin",
+  authController.ensureAuthenticated,
+  authController.adminGet
+);
 // post admin auth
-
+authRouter.post("/admin", authController.adminPost);
 // get logout
 authRouter.get("/logout", authController.logout);
 

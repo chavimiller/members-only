@@ -20,9 +20,13 @@
             <span class="username">@<%= user.username %></span>
             <div class="role-info">
               <% if (user.is_member) { %>
-              <span>Club Member</span>
+              <span> Club Member | </span>
+              <% } else { %>
+              <a href="/auth/member">Become Member</a>
               <% } %> <% if (user.is_admin) { %>
-              <span> • Admin</span>
+              <span> Admin | </span>
+              <% } else { %>
+              <a href="/auth/admin">Become Admin</a>
               <% } %>
             </div>
           </div>
@@ -51,8 +55,12 @@
             Posted on <%= message.created_at.toLocaleString() %>
           </div>
           <% } %> <% if (user.is_admin) { %>
-          <form action="/message/<%= message.id %>/delete" method="POST">
-            <button class="delete-btn">Delete</button>
+          <form
+            class="delete-btn"
+            action="/message/<%= message.id %>/delete"
+            method="POST"
+          >
+            <a class="delete-btn">Delete</a>
           </form>
           <% } %>
         </div>
