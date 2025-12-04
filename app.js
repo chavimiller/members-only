@@ -6,7 +6,6 @@ const messagesRouter = require("./routes/messages");
 const path = require("node:path");
 const session = require("express-session");
 const passport = require("./config/passport");
-const bcrypt = require("bcryptjs");
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
@@ -15,6 +14,7 @@ app.use(session({ secret: "secret", resave: false, saveUninitialized: false }));
 app.use(passport.session());
 
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 app.use("/auth", authRouter);
 app.use("/home", indexRouter);
 app.use("/message", messagesRouter);
