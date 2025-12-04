@@ -136,3 +136,10 @@ form {
     font-size: 2rem;
     padding: 3rem 0;
 }
+
+.msg-error {
+    color: red;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+}

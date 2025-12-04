@@ -11,7 +11,7 @@
       <h1 class="new-message-header">Create new message</h1>
 
       <% if (errors && errors.length > 0) { %>
-      <div style="color: red">
+      <div class="msg-error">
         <% errors.forEach(err => { %>
         <p><%= err.msg %></p>
         <% }); %>
