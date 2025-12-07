@@ -42,7 +42,8 @@
           <div class="message-header">
             <div class="avatar"></div>
             <div class="user-info">
-              <% if (user.is_member || user.id === message.user_id) { %>
+              <% if (user.is_member || user.is_admin || user.id ===
+              message.user_id) { %>
               <span class="full-name"
                 ><%= message.first_name %> <%= message.last_name %></span
               >
@@ -55,7 +56,7 @@
           <div class="message-title"><%= message.title %></div>
           <div class="message-body"><%= message.message%></div>
           <div class="bottom-line">
-            <% if (user.is_member) { %>
+            <% if (user.is_member || user.is_admin) { %>
             <div class="timestamp">
               Posted on <%= message.created_at.toLocaleString() %>
             </div>
