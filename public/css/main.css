@@ -153,4 +153,33 @@ form {
     display: flex;
     flex-direction: column;
     text-align: end;
+    padding: 1rem 0;
+    color: var(--secondary);
+    font-family: "InriaSerifBold";
+    gap: .2rem;
+}
+
+.join-link {
+    color: var(--black);
+}
+
+.timestamp {
+    color: var(--secondary);
+    font-family: "InriaSerifBold";
+}
+
+.delete-btn {
+    background-color: transparent;
+    box-shadow: none;
+    color: var(--secondary);
+    text-decoration: underline;
+    padding: 0;
+    margin: 0;
+    font-size: 1rem;
+}
+
+.bottom-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

@@ -28,9 +28,21 @@ async function newMessagePost(req, res) {
 
 // POST delete message (admins only)
 
+async function deleteMessage(req, res) {
+  const id = req.params.id;
+
+  await db.deleteMessage(id);
+  res.redirect("/home");
+}
+
 // GET cancel message
 async function cancelMessage(req, res) {
   res.redirect("/home");
 }
 
-module.exports = { newMessageGet, newMessagePost, cancelMessage };
+module.exports = {
+  newMessageGet,
+  newMessagePost,
+  cancelMessage,
+  deleteMessage,
+};

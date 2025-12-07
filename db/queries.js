@@ -79,4 +79,5 @@ module.exports = {
   getUserByUsername,
   updateAdminStatus,
   updateMembershipStatus,
+  deleteMessage,
 };

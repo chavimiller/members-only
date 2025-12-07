@@ -10,6 +10,7 @@ messagesRouter.get("/new", messageController.newMessageGet);
 messagesRouter.post("/new", validateMessage, messageController.newMessagePost);
 
 // post delete a message
+messagesRouter.post("/delete/:id", messageController.deleteMessage);
 
 // get cancel message
 messagesRouter.get("/cancelMessage", messageController.cancelMessage);
