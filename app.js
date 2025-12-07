@@ -15,6 +15,11 @@ app.use(passport.session());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
+
+app.get("/", (req, res) => {
+  res.redirect("/auth/signup");
+});
+
 app.use("/auth", authRouter);
 app.use("/home", indexRouter);
 app.use("/message", messagesRouter);
