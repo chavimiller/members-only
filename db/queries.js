@@ -11,7 +11,9 @@ async function insertMessage(title, message, userId) {
   );
 }
 
-// deleteMessage() {}
+async function deleteMessage(id) {
+  await pool.query(`DELETE FROM messages WHERE id = $1`, [id]);
+}
 
 // indexController.js :
 
