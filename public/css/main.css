@@ -40,6 +40,11 @@ h1 {
     font-family: "InriaSerifBold";
     color: var(--secondary);
 }
+
+h2 {
+    text-align: center;
+}
+
 input  {
     outline: none;
     box-sizing: border-box;
@@ -142,4 +147,10 @@ form {
     display: flex;
     text-align: center;
     flex-direction: column;
+}
+
+.role-info {
+    display: flex;
+    flex-direction: column;
+    text-align: end;
 }
