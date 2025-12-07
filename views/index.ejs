@@ -42,10 +42,14 @@
           <div class="message-header">
             <div class="avatar"></div>
             <div class="user-info">
+              <% if (user.is_member || user.id === message.user_id) { %>
               <span class="full-name"
-                ><%= message.first_name %> <%= message.last_name %>
-              </span>
+                ><%= message.first_name %> <%= message.last_name %></span
+              >
               <span class="username">@<%= message.username %></span>
+              <% } else { %>
+              <span class="full-name">Anonymous</span>
+              <% } %>
             </div>
           </div>
           <div class="message-title"><%= message.title %></div>
